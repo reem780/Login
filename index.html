@@ -1,324 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .login-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 420px;
-            padding: 40px 36px;
-        }
-        
-        .login-header {
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        
-        .login-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-        }
-        
-        .login-subtitle {
-            font-size: 14px;
-            color: #666;
-            font-weight: 400;
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #d1d1d6;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #1a1a1a;
-            background-color: #f9f9fb;
-            transition: all 0.2s ease;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #007AFF;
-            background-color: white;
-            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-        }
-        
-        .password-field {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .login-button {
-            width: 100%;
-            padding: 16px;
-            background-color: #007AFF;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            margin-top: 8px;
-        }
-        
-        .login-button:hover {
-            background-color: #0056CC;
-        }
-        
-        .login-button:active {
-            transform: translateY(1px);
-        }
-        
-        .form-divider {
-            display: flex;
-            align-items: center;
-            margin: 32px 0;
-            color: #8e8e93;
-            font-size: 14px;
-        }
-        
-        .form-divider::before,
-        .form-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #e5e5ea;
-        }
-        
-        .form-divider-text {
-            padding: 0 16px;
-        }
-        
-        .alternative-login {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        
-        .alt-login-btn {
-            flex: 1;
-            padding: 14px;
-            border: 1px solid #d1d1d6;
-            border-radius: 8px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #1a1a1a;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .alt-login-btn:hover {
-            background-color: #f9f9fb;
-            border-color: #c7c7cc;
-        }
-        
-        .icon {
-            width: 18px;
-            height: 18px;
-        }
-        
-        .footer-text {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e5ea;
-        }
-        
-        .footer-link {
-            color: #007AFF;
-            text-decoration: none;
-        }
-        
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-        
-        .logo-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 32px;
-            gap: 12px;
-        }
-        
-        .logo-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: #007AFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 20px;
-        }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 32px 24px;
-            }
-            
-            .alternative-login {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #1f2933, #0f1720);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .circle {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tick {
+      position: absolute;
+      width: 4px;
+      height: 20px;
+      background: rgba(255,255,255,0.3);
+      top: 0;
+      left: 50%;
+      transform-origin: center 260px;
+      border-radius: 3px;
+    }
+
+    .tick.active {
+      background: #f59e0b;
+      box-shadow: 0 0 10px #f59e0b;
+    }
+
+    .login-card {
+      position: relative;
+      width: 300px;
+      background: #2a3a44;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      z-index: 2;
+      transition: all 0.6s ease;
+
+    }
+
+    .login-card h2 {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 40px 12px 14px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      background: #3a4a54;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .input-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #b0bec5;
+    }
+
+    .forgot {
+      font-size: 12px;
+      text-align: right;
+      margin-bottom: 15px;
+      color: #cbd5e1;
+      cursor: pointer;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 18px;
+    }
+
+    .social {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .icons i {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e2933;
+      cursor: pointer;
+    }
+
+    .signup {
+      font-size: 13px;
+      color: #f59e0b;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="logo-section">
-            <div class="logo-circle">L</div>
-            <div class="logo-text">Logo</div>
-        </div>
-        
-        <div class="login-header">
-            <h1 class="login-title">LOGIN</h1>
-            <p class="login-subtitle">Sign in to your account to continue</p>
-        </div>
-        
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
-            </div>
-            
-            <div class="form-group">
-                <div class="form-label-container">
-                    <label for="password" class="form-label">Password</label>
-                </div>
-                <div class="password-field">
-                    <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
-                    <button type="button" class="toggle-password" id="togglePassword">Show</button>
-                </div>
-            </div>
-            
-            <button type="submit" class="login-button">Login</button>
-            
-            <div class="form-divider">
-                <span class="form-divider-text">Or continue with</span>
-            </div>
-            
-            <div class="alternative-login">
-                <button type="button" class="alt-login-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
-                    Google
-                </button>
-                
-                <button type="button" class="alt-login-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="#181717"/>
-                    </svg>
-                    GitHub
-                </button>
-            </div>
-        </form>
-        
-        <div class="footer-text">
-            <p>Don't have an account? <a href="#" class="footer-link">Sign up</a></p>
-            <p style="margin-top: 8px;">Forgot your password? <a href="#" class="footer-link">Reset it</a></p>
-        </div>
+
+  <div class="circle" id="circle"></div>
+
+  <div class="login-card">
+    <h2>LOGIN</h2>
+
+    <div class="input-box">
+      <input type="email" placeholder="Email">
+      <i class="fa-regular fa-envelope"></i>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const password = document.getElementById('password').value;
-            
-            // In a real application, you would send this data to a server
-            console.log('Login attempt:', { name, password });
-            
-            // Simple validation
-            if (name && password) {
-                alert(`Welcome, ${name}! Login successful (this is a demo).`);
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-        
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            
-            // Toggle button text
-            this.textContent = type === 'password' ? 'Show' : 'Hide';
-        });
-        
-        // Add interactivity to alternative login buttons
-        document.querySelectorAll('.alt-login-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const provider = this.textContent.trim();
-                alert(`Attempting to login with ${provider} (this is a demo).`);
-            });
-        });
-    </script>
+    <div class="input-box">
+      <input type="password" placeholder="Password">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+
+    <div class="forgot">Forgot your password ?</div>
+
+    <button class="login-btn">LOGIN</button>
+
+    <div class="social">log in with</div>
+
+    <div class="icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-x-twitter"></i>
+      <i class="fab fa-google"></i>
+    </div>
+
+    <div class="signup">Sign Up</div>
+  </div>
+<script>
+  const circle = document.getElementById("circle");
+  const totalTicks = 60;
+
+  for (let i = 0; i < totalTicks; i++) {
+    const tick = document.createElement("div");
+    tick.classList.add("tick");
+    tick.style.transform = `rotate(${i * 6}deg)`;
+    circle.appendChild(tick);
+  }
+
+  let index = 0;
+  let speed = 80;
+
+  const interval = setInterval(() => {
+    const ticks = document.querySelectorAll(".tick");
+    ticks.forEach(t => t.classList.remove("active"));
+    for (let i = 0; i <= index; i++) {
+      ticks[i].classList.add("active");
+    }
+    index = (index + 1) % totalTicks;
+  }, speed);
+
+  const signup = document.querySelector(".signup");
+  const card = document.querySelector(".login-card");
+
+  signup.addEventListener("click", () => {
+    speed = 20;
+
+    card.style.transition = "all 0.6s ease";
+    card.style.transform = "scale(0.7)";
+    card.style.opacity = "0";
+
+    circle.style.transition = "transform 0.8s ease";
+    circle.style.transform = "scale(1.2) rotate(360deg)";
+
+    setTimeout(() => {
+      window.location.href = "signup.html";
+    }, 700);
+  });
+</script>
 </body>
 </html>
